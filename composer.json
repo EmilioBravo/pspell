@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Chencha/Pspell\\": "src/Chencha"
+            "Chencha\\Pspell\\": "src/Chencha/Pspell"
         }
     }
 }

@@ -8,7 +8,7 @@
 
 namespace Chencha\Pspell;
 
-use Chencha\Pspell\Config;
+
 use Chencha\Pspell\Mapping\LoadMapping;
 use Chencha\Pspell\Mapping\PspellLoadMapping;
 use Chencha\Pspell\Mapping\ConfigurationMapping;
@@ -30,6 +30,8 @@ class Container
 
     function __construct(Config $config)
     {
+        $builder = new \DI\ContainerBuilder();
+        $this->container=$builder->build();
         $this->config=$config;
         $this->_setConfig();
         $this->_setConfigurationMapping();

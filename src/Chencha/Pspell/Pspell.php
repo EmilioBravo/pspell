@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jacob
- * Date: 26/11/14
- * Time: 20:27
- */
-
 namespace Chencha\Pspell;
-
 use Chencha\Pspell\Dictionary;
 use Chencha\Pspell\Requests\CheckWordIsValid;
 use Chencha\Pspell\Requests\RetreiveWordSuggestions;
