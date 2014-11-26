@@ -9,7 +9,7 @@
 namespace Chencha\Pspell\Requests;
 
 
-class CheckWordIsValidPspell extends IsAPspellRequest
+class CheckWordIsValid extends IsAPspellRequest
 {
     function run()
     {

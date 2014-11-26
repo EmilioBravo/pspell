@@ -21,8 +21,13 @@ abstract class IsAPspellRequest
     protected $dictionary;
     use Chencha\Pspell\Dictionary;
 
-    function __construct($word)
+    /**
+     * @param $word
+     * @param Dictionary $dictionary
+     */
+    function __construct($word, Dictionary $dictionary)
     {
+        $this->dictionary = $dictionary;
         new CheckValidWord($word);
         $this->word = $word;
         $this->run();
@@ -36,13 +41,6 @@ abstract class IsAPspellRequest
         return $this->response;
     }
 
-    /**
-     * @Inject
-     * @param Dictionary $dictionary
-     */
-    function setDictionary(Dictionary $dictionary){
-        $this->dictionary=$dictionary;
-    }
 
     abstract function run();
 
