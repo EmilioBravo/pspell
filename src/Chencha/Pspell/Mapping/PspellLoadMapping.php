@@ -26,6 +26,15 @@ class PspellLoadMapping  implements LoadMapping{
 
     /**
      * @Inject
+     * @param ConfigurationMapping $mapping
+     */
+    public function setMapping($mapping)
+    {
+        $this->mapping = $mapping;
+    }
+
+    /**
+     * @Inject
      *
      * @param Config $config
      */
@@ -35,11 +44,10 @@ class PspellLoadMapping  implements LoadMapping{
     }
 
 
-    public  function doMapping()
+    public  function doMapping($dictionary)
     {
         $config=$this->config;
         $mapping=$this->mapping->getMapping();
-        $dictionary=$this->dictionary->getDictionary();
         $mapping->map(function ($item, $key) use ($dictionary, $config) {
             if (!is_null($this->config->get($key))) {
                 $item($dictionary, $this->config->get($key));

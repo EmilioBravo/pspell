@@ -28,15 +28,20 @@ class Container
      */
     protected $config;
 
-    function __construct(Config $config)
+    public function __construct(Config $config)
     {
+
         $builder = new \DI\ContainerBuilder();
+
         $this->container=$builder->build();
         $this->config=$config;
+
         $this->_setConfig();
         $this->_setConfigurationMapping();
         $this->_setLoadMapping();
         $this->_setDictionary();
+
+
 
     }
 

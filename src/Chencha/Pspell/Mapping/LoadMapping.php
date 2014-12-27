@@ -11,5 +11,5 @@ namespace Chencha\Pspell\Mapping;
 
 interface LoadMapping
 {
-    function doMapping();
+    function doMapping($dictionary);
 } 

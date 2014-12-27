@@ -6,10 +6,10 @@
  * Time: 13:00
  */
 
-namespace Chencha\Autosuggest\Validators;
+namespace Chencha\Validators\Validators;
 
 
-use Chencha\Autosuggest\Pspell\InvalidWordProvided;
+use Chencha\Pspell\Exceptions\InvalidWordProvided;
 
 class CheckValidWord {
 

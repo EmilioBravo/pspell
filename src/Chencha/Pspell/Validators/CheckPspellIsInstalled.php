@@ -1,6 +1,6 @@
 <?php
 
-namespace Chencha\Autosuggest\Validators;
+namespace Chencha\Pspell\Validators;
 
 
 use Chencha\Pspell\Exceptions\PspellIsNotInstalled;

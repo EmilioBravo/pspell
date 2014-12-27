@@ -3,6 +3,8 @@ namespace Chencha\Pspell;
 use Chencha\Pspell\Dictionary;
 use Chencha\Pspell\Requests\CheckWordIsValid;
 use Chencha\Pspell\Requests\RetreiveWordSuggestions;
+use Chencha\Pspell\Container;
+use Chencha\Pspell\Validators\CheckPspellIsInstalled;
 
 class Pspell
 {
@@ -12,8 +14,14 @@ class Pspell
 
     function __construct(Config $config)
     {
+        new CheckPspellIsInstalled();
+
         $container = new Container($config);
+
         $this->dictionary = $container->getContainer()->get(Dictionary::class);
+         var_dump($this->dictionary);die();
+
+
 
     }
 

@@ -18,4 +18,14 @@ class PspellSpec extends ObjectBehavior
     {
         $this->shouldHaveType('Chencha\Pspell\Pspell');
     }
+    function it_gives_suggestions(){
+        $word="good";
+        $this->getSuggestions($word);
+    }
+    function it_checks_valid_word(){
+        $this->check("good")->shouldReturn(true);
+    }
+    function it_checks_invalid_word(){
+        $this->check("goaz")->shouldReturn(false);
+    }
 }

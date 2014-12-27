@@ -9,7 +9,7 @@
 namespace Chencha\Pspell\Dictionary;
 
 use Chencha\Pspell\Config;
-use Chencha\Pspell\Mapping;
+use Chencha\Pspell\Mapping\LoadMapping;
 
 class PspellDictionary implements Dictionary
 {
@@ -22,25 +22,27 @@ class PspellDictionary implements Dictionary
     /**
      * @param Config $config
      */
-    public function setConfig($config)
-    {
-        $this->config = $config;
-    }
-
     /**
-     * @var Mapping
+     * @var LoadMapping
      */
     protected $mapping;
+    protected $dictionary_config;
 
-    function __construct()
+
+    /**
+     * @Inject
+     * @param LoadMapping $mapping
+     * @param Config $config
+     */
+    function __construct(LoadMapping $mapping,Config $config)
     {
+        $this->mapping = $mapping;
+        $this->config = $config;
         $this->_run();
-
     }
 
     protected function _run()
     {
-        new CheckPspellIsInstalled();
         $this->_loadDictionary();
         $this->_loadConfiguration();
     }
@@ -55,37 +57,20 @@ class PspellDictionary implements Dictionary
 
     protected function _loadDictionary()
     {
-        $dictionary_config = pspell_config_create(
+        $this->dictionary_config = pspell_config_create(
             $this->config->get('language')
 
         );
-        $this->dictionary = pspell_new_config($dictionary_config);
+        $this->dictionary = pspell_new_config( $this->dictionary_config);
     }
 
     protected function _loadConfiguration()
     {
-        $this->loadSetConfigurations->doMapping($this->dictionary_config);
+
+        $this->mapping->doMapping($this->dictionary_config);
     }
 
-    /**
-     * @Inject
-     *
-     * @return Mapping
-     */
-    public function getMapping()
-    {
-        return $this->mapping;
-    }
 
-    /**
-     * @Inject
-     *
-     * @param Mapping $mapping
-     */
-    public function setMapping($mapping)
-    {
-        $this->mapping = $mapping;
-    }
 
 
 }
