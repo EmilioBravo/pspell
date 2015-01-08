@@ -7,10 +7,12 @@
  */
 
 namespace Chencha\Pspell\Mapping;
+
 use Chencha\Pspell\Config;
 use Chencha\Pspell\Dictionary;
 
-class PspellLoadMapping  implements LoadMapping{
+class PspellLoadMapping implements LoadMapping
+{
     /**
      * @var Config
      */
@@ -44,10 +46,10 @@ class PspellLoadMapping  implements LoadMapping{
     }
 
 
-    public  function doMapping($dictionary)
+    public function doMapping($dictionary)
     {
-        $config=$this->config;
-        $mapping=$this->mapping->getMapping();
+        $config = $this->config;
+        $mapping = $this->mapping->getMapping();
         $mapping->map(function ($item, $key) use ($dictionary, $config) {
             if (!is_null($this->config->get($key))) {
                 $item($dictionary, $this->config->get($key));

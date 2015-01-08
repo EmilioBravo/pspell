@@ -36,10 +36,8 @@ class Container
     {
 
         $builder = new \DI\ContainerBuilder();
-
-        $this->container=$builder->build();
-        $this->config=$config;
-
+        $this->container = $builder->build();
+        $this->config = $config;
         $this->_setConfig();
         $this->_setConfigurationMapping();
         $this->_setLoadMapping();
@@ -61,21 +59,26 @@ class Container
         $this->container->set(Config::class, $this->config);
     }
 
-    protected function _setConfigurationMapping(){
+    protected function _setConfigurationMapping()
+    {
         $this->container->set(
             ConfigurationMapping::class,
             new PspellConfigurationMapping()
         );
     }
-    protected function _setLoadMapping(){
+
+    protected function _setLoadMapping()
+    {
         $this->container->set(
             LoadMapping::class,
             $this->container->make(PspellLoadMapping::class)
         );
     }
-    protected function _setDictionary(){
 
-        $this->dictionary=$this->container->make(PspellDictionary::class);
+    protected function _setDictionary()
+    {
+
+        $this->dictionary = $this->container->make(PspellDictionary::class);
 
     }
 

@@ -1,5 +1,6 @@
 <?php
 namespace Chencha\Pspell;
+
 use Chencha\Pspell\Dictionary;
 use Chencha\Pspell\Requests\CheckWordIsValid;
 use Chencha\Pspell\Requests\RetreiveWordSuggestions;

@@ -34,7 +34,7 @@ class PspellDictionary implements Dictionary
      * @param LoadMapping $mapping
      * @param Config $config
      */
-    function __construct(LoadMapping $mapping,Config $config)
+    function __construct(LoadMapping $mapping, Config $config)
     {
         $this->mapping = $mapping;
         $this->config = $config;
@@ -61,7 +61,7 @@ class PspellDictionary implements Dictionary
             $this->config->get('language')
 
         );
-        $this->dictionary = pspell_new_config( $this->dictionary_config);
+        $this->dictionary = pspell_new_config($this->dictionary_config);
     }
 
     protected function _loadConfiguration()
@@ -69,8 +69,6 @@ class PspellDictionary implements Dictionary
 
         $this->mapping->doMapping($this->dictionary_config);
     }
-
-
 
 
 }
