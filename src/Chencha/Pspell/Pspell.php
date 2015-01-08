@@ -15,7 +15,6 @@ class Pspell
     function __construct(Config $config)
     {
         new CheckPspellIsInstalled();
-
         $container = new Container($config);
         $this->dictionary = $container->getDictionary();
     }
