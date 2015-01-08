@@ -23,7 +23,6 @@ class Pspell
     {
         $request = new RetreiveWordSuggestions($word, $this->dictionary);
         return $request->getResponse();
-
     }
 
     function check($word)
