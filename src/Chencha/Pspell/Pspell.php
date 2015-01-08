@@ -1,5 +1,6 @@
 <?php
 namespace Chencha\Pspell;
+
 use Chencha\Pspell\Dictionary;
 use Chencha\Pspell\Requests\CheckWordIsValid;
 use Chencha\Pspell\Requests\RetreiveWordSuggestions;
@@ -23,7 +24,6 @@ class Pspell
     {
         $request = new RetreiveWordSuggestions($word, $this->dictionary);
         return $request->getResponse();
-
     }
 
     function check($word)

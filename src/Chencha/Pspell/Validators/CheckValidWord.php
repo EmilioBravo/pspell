@@ -11,11 +11,12 @@ namespace Chencha\Pspell\Validators;
 
 use Chencha\Pspell\Exceptions\InvalidWordProvided;
 
-class CheckValidWord {
+class CheckValidWord
+{
 
     function __construct($word)
     {
-        if(!ctype_alnum($word)){
+        if (!ctype_alnum($word)) {
             throw new InvalidWordProvided($word);
         }
 

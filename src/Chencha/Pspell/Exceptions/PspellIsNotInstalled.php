@@ -9,6 +9,8 @@
 namespace Chencha\Pspell\Exceptions;
 
 use Exception;
-class PspellIsNotInstalled extends Exception {
+
+class PspellIsNotInstalled extends Exception
+{
 
 } 

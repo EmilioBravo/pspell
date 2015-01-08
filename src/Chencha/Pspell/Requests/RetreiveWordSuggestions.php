@@ -9,10 +9,11 @@
 namespace Chencha\Pspell\Requests;
 
 
-class RetreiveWordSuggestions extends IsAPspellRequest {
+class RetreiveWordSuggestions extends IsAPspellRequest
+{
     function run()
     {
-        $this->response= pspell_suggest(
+        $this->response = pspell_suggest(
             $this->dictionary->getDictionary(),
             $this->word
         );

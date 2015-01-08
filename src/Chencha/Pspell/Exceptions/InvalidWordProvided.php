@@ -11,6 +11,7 @@ namespace Chencha\Pspell\Exceptions;
 
 use Exception;
 
-class InvalidWordProvided extends Exception {
+class InvalidWordProvided extends Exception
+{
 
 } 
