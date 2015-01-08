@@ -8,7 +8,8 @@
 
 namespace Chencha\Pspell\Requests;
 
-use Chencha\Autosuggest\Validators\CheckValidWord;
+use Chencha\Pspell\Validators\CheckValidWord;
+use Chencha\Pspell\Dictionary\Dictionary;
 
 abstract class IsAPspellRequest
 {
@@ -19,7 +20,6 @@ abstract class IsAPspellRequest
      * @var Dictionary
      */
     protected $dictionary;
-    use Chencha\Pspell\Dictionary;
 
     /**
      * @param $word

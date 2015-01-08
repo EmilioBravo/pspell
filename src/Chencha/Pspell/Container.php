@@ -22,11 +22,15 @@ class Container
     /**
      * @var \DI\Container
      */
-    protected $container;
+    public $container;
     /**
      * @var Config
      */
     protected $config;
+    /**
+     * @var Dictionary
+     */
+    protected $dictionary;
 
     public function __construct(Config $config)
     {
@@ -40,9 +44,6 @@ class Container
         $this->_setConfigurationMapping();
         $this->_setLoadMapping();
         $this->_setDictionary();
-
-
-
     }
 
 
@@ -73,10 +74,17 @@ class Container
         );
     }
     protected function _setDictionary(){
-       $this->container->set(
-           Dictionary::class,
-           $this->container->make(PspellDictionary::class)
-       );
+
+        $this->dictionary=$this->container->make(PspellDictionary::class);
+
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDictionary()
+    {
+        return $this->dictionary;
     }
 
 

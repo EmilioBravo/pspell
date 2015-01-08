@@ -13,7 +13,7 @@ class CheckWordIsValid extends IsAPspellRequest
 {
     function run()
     {
-        $this->response = pspell_suggest(
+        $this->response = pspell_check(
             $this->dictionary->getDictionary(),
             $this->word
         );;

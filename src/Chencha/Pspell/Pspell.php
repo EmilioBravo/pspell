@@ -17,12 +17,7 @@ class Pspell
         new CheckPspellIsInstalled();
 
         $container = new Container($config);
-
-        $this->dictionary = $container->getContainer()->get(Dictionary::class);
-         var_dump($this->dictionary);die();
-
-
-
+        $this->dictionary = $container->getDictionary();
     }
 
     function getSuggestions($word)

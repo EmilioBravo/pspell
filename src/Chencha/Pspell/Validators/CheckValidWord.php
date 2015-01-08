@@ -6,7 +6,7 @@
  * Time: 13:00
  */
 
-namespace Chencha\Validators\Validators;
+namespace Chencha\Pspell\Validators;
 
 
 use Chencha\Pspell\Exceptions\InvalidWordProvided;

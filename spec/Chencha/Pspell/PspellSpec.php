@@ -23,7 +23,7 @@ class PspellSpec extends ObjectBehavior
         $this->getSuggestions($word);
     }
     function it_checks_valid_word(){
-        $this->check("good")->shouldReturn(true);
+       $this->check("good")->shouldReturn(true);
     }
     function it_checks_invalid_word(){
         $this->check("goaz")->shouldReturn(false);
