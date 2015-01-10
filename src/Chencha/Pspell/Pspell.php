@@ -13,8 +13,11 @@ class Pspell
     protected $dictionary;
 
 
-    function __construct(Config $config)
+    function __construct(Config $config=null)
     {
+        if(is_null($config)){
+            $config= new Config();
+        }
         new CheckPspellIsInstalled();
         $container = new Container($config);
         $this->dictionary = $container->getDictionary();
