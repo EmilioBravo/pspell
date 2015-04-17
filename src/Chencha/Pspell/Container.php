@@ -56,13 +56,13 @@ class Container
 
     protected function _setConfig()
     {
-        $this->container->set(Config::class, $this->config);
+        $this->container->set("Chencha\Pspell\Config", $this->config);
     }
 
     protected function _setConfigurationMapping()
     {
         $this->container->set(
-            ConfigurationMapping::class,
+            "Chencha\Pspell\Mapping\ConfigurationMapping",
             new PspellConfigurationMapping()
         );
     }
@@ -70,15 +70,15 @@ class Container
     protected function _setLoadMapping()
     {
         $this->container->set(
-            LoadMapping::class,
-            $this->container->make(PspellLoadMapping::class)
+            "Chencha\Pspell\Mapping\LoadMapping",
+            $this->container->make("Chencha\Pspell\Mapping\PspellLoadMapping")
         );
     }
 
     protected function _setDictionary()
     {
 
-        $this->dictionary = $this->container->make(PspellDictionary::class);
+        $this->dictionary = $this->container->make("Chencha\Pspell\Dictionary\PspellDictionary");
 
     }
 
